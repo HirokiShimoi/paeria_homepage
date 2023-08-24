@@ -400,7 +400,7 @@ form .form-control {
 
 @media screen and (min-width:1440px) {
   .section_block{
-    padding: 11em 0;
+    padding: 8em 0;
   }
 }
 
@@ -571,4 +571,18 @@ form .form-control {
   font-size: 1.1rem;
   line-height: 1.;
   padding: 2.8rem 0;
+}
+
+.swiper-container{
+  position: relative;
+  z-index: 4;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+
 }
