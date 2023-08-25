@@ -46,6 +46,10 @@ ul{
   box-shadow: var(--box-shadow);
 }
 
+.navbar-collapse{
+  text-align: end;
+}
+
 .logo {
   width: 160px;
 }
@@ -90,8 +94,8 @@ ul{
 }
 
 section {
-  padding-top: 120px;
-
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .card-effect {
@@ -237,8 +241,8 @@ form .form-control {
 }
 
 .footer-top {
-  padding-bottom: 90px;
-  padding: 90px;
+  padding-bottom: 45px;
+  padding: 45px;
   background-color: var(--dark);
 }
 
@@ -586,9 +590,13 @@ form .form-control {
   color: #fff;
 
 }
-.feature_box_2 {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
+
+@media screen and (min-width:769px) {
+  .feature_box_2 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
 }
