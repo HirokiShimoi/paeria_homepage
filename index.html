@@ -467,16 +467,16 @@
             </div>
             <form action="" class="row g-3 justify-content-center" id="ContactId" onsubmit="return validateForm()">
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Full Name" required>
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="email" class="form-control" placeholder="Enter E-mail" required>
+                    <input type="email" name="email" class="form-control" placeholder="Enter E-mail" required>
                 </div>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Enter Subject" required maxlength="100">
+                    <input type="text" name="subject" class="form-control" placeholder="Enter Subject" required maxlength="100">
                 </div>
                 <div class="col-md-10">
-                    <textarea name="" id="" cols="30" rows="5" class="form-control"
+                    <textarea name="message" id="" cols="30" rows="5" class="form-control"
                         placeholder="Enter Message" required maxlength="500"></textarea>
                 </div>
                 <div class="col-md-10 d-grid">
@@ -524,6 +524,10 @@
 
     <script>
         function submitConfirmation() {
+            if (!validateForm()) {
+                return; // バリデーションが失敗した場合、処理を中断
+            }
+        
             var result = confirm("この内容で送信してもよろしいでしょうか？");
             if (result) {
                 document.getElementById("ContactId").submit();
@@ -554,9 +558,6 @@
             } else {
                 email.setCustomValidity("");
             }
-    
-            // 件名とメッセージのバリデーション
-            // ... 同様のチェックを追加 ...
     
             return valid;
         }
