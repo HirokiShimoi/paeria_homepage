@@ -68,8 +68,8 @@
                 <div class="col-lg-7 mx-auto text-center">
                     <h1 class="display-4 text-white">Team Paeria</h1>
                     <p class="text-white my-3">Welcome to Team Paeria, a premier dance school in Wakayama. Join us to discover the joy of dance and express yourself through movement. Whether you're a beginner or an experienced dancer, we offer a range of classes for all levels.</p>
-                    <a href="#" class="btn btn-primary me-2">Go Page</a>
-                    <a href="#" class="btn btn-outline-light">CONTACT</a>
+                    <a href="#about" class="btn btn-primary me-2">ABOUT US</a>
+                    <a href="#contact" class="btn btn-outline-light">CONTACT</a>
                 </div>
             </div>
         </div>
@@ -233,7 +233,7 @@
             <div class="row">
                 <div class="col-md-8 mx-auto text-center">
                     <h1>最初にお持ちいただくものは3点だけ！</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, deserunt.</p>
+                    <p>スタジオのご案内などはお問い合わせ時にご案内をさせて頂きます。</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -421,7 +421,7 @@
                 <div class="col-md-8 mx-auto text-center">
                     <h6 class="text-primary">Teacher</h6>
                     <h1>チームパエリア講師紹介</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, deserunt.</p>
+                    <p>何でも相談できるパエリアの気さくな講師たちです！</p>
                 </div>
             </div>
             <div class="row g-3">
@@ -460,27 +460,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto text-center">
-                    <h6 class="text-primary">Contact</h6>
-                    <h1>Get In Touch</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, deserunt.</p>
+                    <h6 class="text-primary">CONTACT</h6>
+                    <h1>お問い合わせ</h1>
+                    <p>初心者の方、質問などお気軽にお問い合わせください</p>
                 </div>
             </div>
-            <form action="" class="row g-3 justify-content-center">
+            <form action="" class="row g-3 justify-content-center" id="ContactId" onsubmit="return validateForm()">
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Full Name">
+                    <input type="text" class="form-control" placeholder="Full Name" required>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" placeholder="Enter E-mail">
+                    <input type="email" class="form-control" placeholder="Enter E-mail" required>
                 </div>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Enter Subject">
+                    <input type="text" class="form-control" placeholder="Enter Subject" required maxlength="100">
                 </div>
                 <div class="col-md-10">
                     <textarea name="" id="" cols="30" rows="5" class="form-control"
-                        placeholder="Enter Message"></textarea>
+                        placeholder="Enter Message" required maxlength="500"></textarea>
                 </div>
                 <div class="col-md-10 d-grid">
-                    <button class="btn btn-primary">CONTACT</button>
+                    <button type="button" class="btn btn-primary" onclick="submitConfirmation()">お問い合わせをする</button>
                 </div>
             </form>
         </div>
@@ -521,6 +521,46 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="style.js"></script>
+
+    <script>
+        function submitConfirmation() {
+            var result = confirm("この内容で送信してもよろしいでしょうか？");
+            if (result) {
+                document.getElementById("ContactId").submit();
+            }
+        }
+    </script>
+    <script>
+        function validateForm() {
+            let valid = true;
+    
+            let name = document.forms["ContactId"]["name"];
+            let email = document.forms["ContactId"]["email"];
+            let subject = document.forms["ContactId"]["subject"];
+            let message = document.forms["ContactId"]["message"];
+    
+            // 名前のバリデーション
+            if (name.value == "") {
+                name.setCustomValidity("名前を入力してください");
+                valid = false;
+            } else {
+                name.setCustomValidity("");
+            }
+    
+            // メールのバリデーション
+            if (email.value == "") {
+                email.setCustomValidity("メールアドレスを入力してください");
+                valid = false;
+            } else {
+                email.setCustomValidity("");
+            }
+    
+            // 件名とメッセージのバリデーション
+            // ... 同様のチェックを追加 ...
+    
+            return valid;
+        }
+    </script>
 </body>
 
 </html>
